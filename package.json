@@ -1,0 +1,15 @@
+{
+  "name": "sabarasaneh-bot",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "deploy": "wrangler deploy",
+    "seed": "node scripts/seed.mjs && wrangler d1 execute sabarasaneh --remote --file=kb/seed.sql",
+    "test": "node --no-warnings test/smoke.mjs",
+    "logs": "wrangler tail"
+  },
+  "devDependencies": {
+    "wrangler": "^4"
+  }
+}

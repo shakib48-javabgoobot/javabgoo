@@ -1,0 +1,31 @@
+name = "sabarasaneh-bot"
+main = "src/index.js"
+compatibility_date = "2025-09-01"
+
+# پایگاه داده SQLite رایگان کلادفلر (بعد از `wrangler d1 create sabarasaneh` مقدار database_id را جایگزین کنید)
+[[d1_databases]]
+binding = "DB"
+database_name = "sabarasaneh"
+database_id = "PUT_YOUR_D1_DATABASE_ID_HERE"
+
+# هوش مصنوعی پشتیبان (Workers AI) - اختیاری، کلید نمی‌خواهد
+[ai]
+binding = "AI"
+
+[vars]
+# آیدی عددی مدیران، با ویرگول (با /myid در چت خصوصی ربات می‌گیرید)
+ADMIN_IDS = ""
+# آیدی گروه‌های مجاز (خالی = همه‌ی گروه‌هایی که ربات در آن‌هاست). با /chatid در گروه می‌گیرید
+ALLOWED_CHAT_IDS = ""
+# مدل‌ها؛ نام دقیق مدل‌ها را در AI Studio / مستندات کلادفلر چک کنید (ممکن است تغییر کند)
+GEMINI_MODEL = "gemini-3.5-flash-lite"
+WORKERS_AI_MODEL = "@cf/meta/llama-3.3-70b-instruct-fp8-fast"
+# فقط برای جست‌وجوی وب در حالت trusted (این دامنه‌ها را خودتان بررسی و ویرایش کنید)
+TRUSTED_DOMAINS = "tamin.ir,mcls.gov.ir,rc.majlis.ir,shasta.ir"
+MIN_COVERAGE = "0.3"
+DIRECT_DICE = "0.7"
+CHAT_COOLDOWN_SEC = "45"
+USER_COOLDOWN_SEC = "180"
+
+# رازها را با wrangler secret put وارد کنید (در این فایل ننویسید):
+#   BOT_TOKEN, WEBHOOK_SECRET, GEMINI_API_KEY, TAVILY_API_KEY
